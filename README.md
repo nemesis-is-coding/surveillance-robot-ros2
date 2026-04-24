@@ -27,4 +27,4 @@ ros2 launch surveillance_robot gazebo.launch.py
 ros2 run surveillance_robot patrol.py
 
 ## Auteur
-Nemesis — Projet robotique 2026
+BOUGHENOU Akli Mahdi — Projet robotique 2026
