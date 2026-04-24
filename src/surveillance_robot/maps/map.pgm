@@ -1,0 +1,8 @@
+python3 -c "
+import struct
+width, height = 400, 400
+with open('$HOME/robot_surveillance_ws/src/surveillance_robot/maps/map.pgm', 'wb') as f:
+    f.write(f'P5\n{width} {height}\n255\n'.encode())
+    f.write(bytes([254] * width * height))
+print('Carte créée !')
+"

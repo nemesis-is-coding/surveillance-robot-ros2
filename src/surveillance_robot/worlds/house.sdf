@@ -1,0 +1,147 @@
+<?xml version="1.0" ?>
+<sdf version="1.8">
+  <world name="house">
+
+    <!-- Lumière -->
+    <light type="directional" name="sun">
+      <cast_shadows>true</cast_shadows>
+      <pose>0 0 10 0 0 0</pose>
+      <diffuse>0.8 0.8 0.8 1</diffuse>
+      <specular>0.2 0.2 0.2 1</specular>
+      <direction>-0.5 0.1 -0.9</direction>
+    </light>
+
+    <!-- Sol -->
+    <model name="ground_plane">
+      <static>true</static>
+      <link name="link">
+        <collision name="collision">
+          <geometry><plane><normal>0 0 1</normal></plane></geometry>
+        </collision>
+        <visual name="visual">
+          <geometry><plane><normal>0 0 1</normal><size>50 50</size></plane></geometry>
+          <material><ambient>0.8 0.8 0.8 1</ambient></material>
+        </visual>
+      </link>
+    </model>
+
+    <!-- Mur extérieur Nord -->
+    <model name="wall_north">
+      <static>true</static>
+      <pose>0 8 1 0 0 0</pose>
+      <link name="link">
+        <collision name="collision">
+          <geometry><box><size>16 0.2 2</size></box></geometry>
+        </collision>
+        <visual name="visual">
+          <geometry><box><size>16 0.2 2</size></box></geometry>
+          <material><ambient>0.9 0.9 0.85 1</ambient></material>
+        </visual>
+      </link>
+    </model>
+
+    <!-- Mur extérieur Sud -->
+    <model name="wall_south">
+      <static>true</static>
+      <pose>0 -8 1 0 0 0</pose>
+      <link name="link">
+        <collision name="collision">
+          <geometry><box><size>16 0.2 2</size></box></geometry>
+        </collision>
+        <visual name="visual">
+          <geometry><box><size>16 0.2 2</size></box></geometry>
+          <material><ambient>0.9 0.9 0.85 1</ambient></material>
+        </visual>
+      </link>
+    </model>
+
+    <!-- Mur extérieur Est -->
+    <model name="wall_east">
+      <static>true</static>
+      <pose>8 0 1 0 0 0</pose>
+      <link name="link">
+        <collision name="collision">
+          <geometry><box><size>0.2 16 2</size></box></geometry>
+        </collision>
+        <visual name="visual">
+          <geometry><box><size>0.2 16 2</size></box></geometry>
+          <material><ambient>0.9 0.9 0.85 1</ambient></material>
+        </visual>
+      </link>
+    </model>
+
+    <!-- Mur extérieur Ouest -->
+    <model name="wall_west">
+      <static>true</static>
+      <pose>-8 0 1 0 0 0</pose>
+      <link name="link">
+        <collision name="collision">
+          <geometry><box><size>0.2 16 2</size></box></geometry>
+        </collision>
+        <visual name="visual">
+          <geometry><box><size>0.2 16 2</size></box></geometry>
+          <material><ambient>0.9 0.9 0.85 1</ambient></material>
+        </visual>
+      </link>
+    </model>
+
+    <!-- Mur intérieur 1 (séparation couloir/salon) -->
+    <model name="wall_inner1">
+      <static>true</static>
+      <pose>0 2 1 0 0 0</pose>
+      <link name="link">
+        <collision name="collision">
+          <geometry><box><size>8 0.2 2</size></box></geometry>
+        </collision>
+        <visual name="visual">
+          <geometry><box><size>8 0.2 2</size></box></geometry>
+          <material><ambient>0.85 0.85 0.8 1</ambient></material>
+        </visual>
+      </link>
+    </model>
+
+    <!-- Mur intérieur 2 (séparation chambre/couloir) -->
+    <model name="wall_inner2">
+      <static>true</static>
+      <pose>2 5 1 0 0 1.5707</pose>
+      <link name="link">
+        <collision name="collision">
+          <geometry><box><size>6 0.2 2</size></box></geometry>
+        </collision>
+        <visual name="visual">
+          <geometry><box><size>6 0.2 2</size></box></geometry>
+          <material><ambient>0.85 0.85 0.8 1</ambient></material>
+        </visual>
+      </link>
+    </model>
+
+    <!-- Mur intérieur 3 (cuisine) -->
+    <model name="wall_inner3">
+      <static>true</static>
+      <pose>-3 -2 1 0 0 1.5707</pose>
+      <link name="link">
+        <collision name="collision">
+          <geometry><box><size>6 0.2 2</size></box></geometry>
+        </collision>
+        <visual name="visual">
+          <geometry><box><size>6 0.2 2</size></box></geometry>
+          <material><ambient>0.85 0.85 0.8 1</ambient></material>
+        </visual>
+      </link>
+    </model>
+
+    <!-- Physique -->
+    <physics name="1ms" type="ignored">
+      <max_step_size>0.001</max_step_size>
+      <real_time_factor>1.0</real_time_factor>
+    </physics>
+
+<plugin filename="gz-sim8-physics-system"
+            name="gz::sim::systems::Physics"/>
+    <plugin filename="gz-sim8-user-commands-system"
+            name="gz::sim::systems::UserCommands"/>
+    <plugin filename="gz-sim8-scene-broadcaster-system"
+            name="gz::sim::systems::SceneBroadcaster"/>
+
+  </world>
+</sdf>
