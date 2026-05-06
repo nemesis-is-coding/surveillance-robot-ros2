@@ -9,6 +9,8 @@ install(DIRECTORY urdf launch worlds maps config scripts
 
 install(PROGRAMS
   scripts/patrol.py
+  scripts/detection.py
+  scripts/alarm.py
   DESTINATION lib/${PROJECT_NAME}
 )
 
