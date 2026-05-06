@@ -14,4 +14,11 @@ install(PROGRAMS
   DESTINATION lib/${PROJECT_NAME}
 )
 
+install(PROGRAMS
+  scripts/patrol.py
+  scripts/detection.py
+  scripts/alarm.py
+  scripts/frame_fix.py
+  DESTINATION lib/${PROJECT_NAME}
+)
 ament_package()
